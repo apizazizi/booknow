@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>order-details</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+      <ion-label class="ion-text-wrap" *ngFor="let i of item">
+        Order ID: <P> {{order.order_id}}</P> 
+        Delivery address: <P> {{order.delivery_address}}</P> 
+        
+
+    <tr class="heading">
+      <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+        Item
+      </td>
+
+      <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+        Qty
+      </td>
+    </tr>
+
+    <tr *ngFor="let q of qty; let num = index;" class="item">
+      <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+
+        <!-- ensures only 1 name in each row -->
+        {{ i.name[num] }}
+      </td>
+
+      <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+        {{ q.qty }}
+      </td>
+    </tr> 
+   
+    <p></p>
+    Total : <p>RM {{ order.total }}</p> 
+
+</ion-label>
+
+</ion-content>

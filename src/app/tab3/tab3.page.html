@@ -1,0 +1,114 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content>
+<div class="tab-wrap">
+  
+    <input type="radio" name="tabs" id="tab4" checked>
+    <div class="tab-label-content" id="tab4-content">
+      <label class="tab-label" for="tab4">To ship</label>
+      <div class="tab-content">
+
+        <ion-card *ngFor="let item of ToShip | async; let num = index;">
+        
+          <ion-card-content >
+                <ion-card-subtitle>Order id: {{ item.order_id }}</ion-card-subtitle>
+                <ion-card-subtitle> Address: {{ item.delivery_address }}</ion-card-subtitle>
+                <ion-card-subtitle>RM {{ item.total }}</ion-card-subtitle>
+                <tr class="heading">
+                  <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                    Item
+                  </td>
+            
+                  <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                    Qty
+                  </td>
+                </tr>
+            
+                <tr class="item">
+                  <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+            
+                    <!-- ensures only 1 name in each row -->
+                    {{ item.item[num].name }}
+                  </td>
+            
+                  <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+                    {{ item.item_qty[num].qty }}
+                  </td>
+                </tr>
+              
+      
+              <ion-col size="10">
+                <p> <ion-button ion-button outline item-end color="primary" [routerLink]="['/order-details', item.order_id]" >
+                  Order details
+                </ion-button> </p>
+                
+                <p> <ion-button ion-button outline item-end color="primary" color="danger" (click)="cancelOrder(item.order_id)" >
+                  Cancel order
+                </ion-button> </p>
+      
+              </ion-col>
+            
+   
+        </ion-card-content>
+      </ion-card>
+      	
+      </div>
+    </div>
+     
+    
+    <input type="radio" name="tabs" id="tab5">
+    <div class="tab-label-content" id="tab5-content">
+      <label class="tab-label" for="tab5">To receive</label>
+      <div class="tab-content">
+
+        <ion-card *ngFor="let item of ToReceive | async; let num = index;">
+          
+        
+          <ion-card-content >
+                <ion-card-subtitle>Order id: {{ item.order_id }}</ion-card-subtitle>
+                <ion-card-subtitle> Address: {{ item.delivery_address }}</ion-card-subtitle>
+                <ion-card-subtitle>RM {{ item.total }}</ion-card-subtitle>
+                <tr class="heading">
+                  <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                    Item
+                  </td>
+            
+                  <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                    Qty
+                  </td>
+                </tr>
+            
+                <tr class="item">
+                  <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+            
+                    <!-- ensures only 1 name in each row -->
+                    {{ item.item[num].name }}
+                  </td>
+            
+                  <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+                    {{ item.item_qty[num].qty }}
+                  </td>
+                </tr>
+              
+      
+              <ion-col size="10">
+                <p> <ion-button ion-button outline item-end color="primary" [routerLink]="['/order-details', item.order_id]" >
+                  Order details
+                </ion-button> </p>
+                
+      
+              </ion-col>
+            
+   
+        </ion-card-content>
+      </ion-card>
+      </div>
+    </div>
+    
+    
+    <div class="slide"></div>
+  
+</div>
+</ion-content>

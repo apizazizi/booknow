@@ -1,0 +1,105 @@
+.tab-wrap {
+    width: 100%;
+    position: relative;
+    display: flex;
+    top: 1px;
+    box-shadow: -1px 1px 3px 0px #bbb;    
+  }
+  .tab-label {
+    cursor: pointer;
+    color: #111;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 56px;
+    transition: color 0.2s ease;
+    width: 100%;
+    
+  }
+  .slide {
+    background: #00B9DF;
+    width: calc(100% / 2);
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 2px);
+    transition: left 0.3s ease-out;
+  }
+  
+  .tab-label-content {
+    width: 100%;
+  }
+  
+  .tab-label-content .tab-content {
+    position: absolute;
+    top: 65px;
+    left: 13px;
+    line-height: 130%;
+    display: none;
+  }
+
+  .tab-label-contentc .tab-contentc {
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    line-height: 130%;
+    display: none;
+  }
+  input[type="radio"][name="tabs"] {
+    position: absolute;
+    z-index: -1;    
+  }
+  input[type="radio"][name="tabs"]:checked + .tab-label-content .tab-label {
+    color: #00B9DF;
+    border-left: #ddd solid 1px;
+    border-right: #ddd solid 1px;
+    font-weight: 500;
+  
+  }
+  input[type="radio"][name="tabs"]:checked + .tab-label-content .tab-content {
+    display: block;
+  }
+  input[type="radio"][name="tabs"]:nth-of-type(1):checked ~ .slide {
+    left: calc((100% / 2) * 0);
+  
+  }
+  input[type="radio"][name="tabs"]:nth-of-type(2):checked ~ .slide {
+    left: calc((100% / 2) * 1);
+  }
+  
+  input[type="radio"][name="tabs"]:first-of-type:checked ~ .slide {
+    left: 0;
+  }
+  
+  ion-header {
+  
+    .titles {
+      position: relative;
+      padding: 0 1.2rem;
+      background: var(--ion-color-brown);
+      h4, h6 {
+        margin: 0;
+        margin-bottom: 4px;
+        color: #fff;
+        ion-icon {
+          vertical-align: middle;
+        }
+      }
+      h4 {
+        text-align: center;
+        font-weight: 900;
+        font-size: 26px;
+      }
+      h6 {
+        font-weight: 600;
+      }
+    }
+  
+  }
+
+  ion-content {
+    --background: linear-gradient(315deg, #4d12ac 0%, #7134d3 74%);
+   }

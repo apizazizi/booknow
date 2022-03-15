@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Checkout </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen="true">
+
+  <div class="cart-items">
+      <ion-card-content>
+        <div class="item-img">
+          
+          <img src ="assets/logo2.jpg"/>
+        </div>
+
+          <ion-item *ngFor="let p of books">
+           <p> {{ p.count }}x</p> 
+          <p>{{ p.name }}</p> 
+          <p>{{ p.category }}</p>
+        </ion-item>
+
+        
+      </ion-card-content>
+    
+  </div>
+
+  <div class="address">
+    <ion-item lines="none">
+      <ion-label position="floating">Address</ion-label>
+      <ion-input type="text" placeholder="your address" [(ngModel)]="post.address" required></ion-input>
+    </ion-item>
+  </div>
+
+  <hr>
+
+  <div class="cart-total">
+    <ion-item lines="none" >
+      <ion-label>Subtotal</ion-label>
+      <ion-label slot="end" class="ion-text-right">RM {{ getSubTotal() }}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Tax</ion-label>
+      <ion-label slot="end" class="ion-text-right">10%</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Total price</ion-label>
+      <ion-label slot="end" class="ion-text-right">RM {{ getTotal() }}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" (click)="confirmCheckout()" >Confirm purchase</ion-button>
+    <ion-button color="danger" expand="block" class="main-button" (click)="cancelCheckout()"   >Cancel purchase</ion-button>
+  </ion-toolbar>
+</ion-footer> 

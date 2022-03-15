@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+      <ion-label class="ion-text-wrap">
+        <div class="form-group col-12">
+          <input type="file"
+          id="file"
+          #userPhoto
+          (change)="onFileSelected($event)"
+          name="image"
+          autocomplete="off"
+          />
+         </div>
+       
+        NAME: <ion-input type="text"   [(ngModel)]="product.name" required></ion-input >
+         AUTHOR: <ion-input type="text"   [(ngModel)]="product.author" required></ion-input > 
+          <ion-label>GENRE:  </ion-label>
+          <ion-select value="General" okText="Okay" [(ngModel)]="product.genre" cancelText="Dismiss">
+            <ion-select-option value="fiction">Fiction</ion-select-option>
+            <ion-select-option value="non-fiction">Non-fiction</ion-select-option>
+            <ion-select-option value="children books">Children books</ion-select-option>
+          </ion-select>      
+              RM <ion-input type="number"   [(ngModel)]="product.price" required></ion-input >        
+                    
+
+
+      </ion-label>
+      DESCRIPTION:  <ion-input type="text"  [(ngModel)]="product.description" required></ion-input >
+      <ion-button fill="outline" slot="end"  (click)="addProduct(product)"color="primary">Add</ion-button>
+    
+  </ion-list>
+
+</ion-content>

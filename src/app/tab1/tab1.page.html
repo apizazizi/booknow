@@ -1,0 +1,91 @@
+<script type="module">
+  import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.menuController = menuController;
+</script>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="tab-wrap">
+      <input type="radio" name="tabs" id="tab1" checked>
+      <div class="tab-label-content" id="tab1-content">
+        <label class="tab-label" for="tab1">Fiction</label>
+        <div class="tab-content">
+  
+          <ion-card *ngFor="let b of books | async">
+            <ion-item *ngIf="b.genre === 'fiction'">
+              <img src ="{{ b.image }}"/>
+              <ion-button fill="outline" slot="end" [routerLink]="['/readmore', b.id]">View</ion-button>
+            </ion-item>
+          
+            <ion-card-content *ngIf="b.genre === 'fiction'">
+                  <ion-card-subtitle>Name: {{ b.name }}</ion-card-subtitle>
+                  <ion-card-subtitle> Author: {{ b.author  }}</ion-card-subtitle>
+                  <ion-card-subtitle> Genre: {{ b.genre }}</ion-card-subtitle>
+                  <ion-card-subtitle>Price:RM {{ b.price }}</ion-card-subtitle>
+                  
+              
+            </ion-card-content>
+          </ion-card>
+      </div>
+      </div>
+       
+      <input type="radio" name="tabs" id="tab2">
+      <div class="tab-label-content" id="tab2-content">
+        <label class="tab-label" for="tab2">Non-Fiction</label>
+        <div class="tab-content">
+  
+          <ion-card *ngFor="let b of books | async">
+            <ion-item *ngIf="b.genre === 'non-fiction'">
+              <img src ="{{ b.image }}"/>
+              <ion-button fill="outline" slot="end" [routerLink]="['/readmore', b.id]">View</ion-button>
+            </ion-item>
+          
+            <ion-card-content *ngIf="b.genre === 'non-fiction'">
+              <ion-card-subtitle>Name: {{ b.name }}</ion-card-subtitle>
+              <ion-card-subtitle> Author: {{ b.author  }}</ion-card-subtitle>
+              <ion-card-subtitle> Genre: {{ b.genre }}</ion-card-subtitle>
+              <ion-card-subtitle>Price:RM {{ b.price }}</ion-card-subtitle>
+        </ion-card-content>
+          </ion-card>
+  
+        </div>
+      </div>
+
+
+      <input type="radio" name="tabs" id="tab3">
+      <div class="tab-label-content" id="tab3-content">
+        <label class="tab-label" for="tab3">Children's books</label>
+        <div class="tab-content">
+  
+          <ion-card *ngFor="let b of books | async">
+            <ion-item *ngIf="b.genre === 'children books'">
+              <img src ="{{ b.image }}"/>
+              <ion-button fill="outline" slot="end" [routerLink]="['/readmore', b.id]">View</ion-button>
+            </ion-item>
+          
+            <ion-card-content *ngIf="b.genre === 'children books'">
+              <ion-card-subtitle>Name: {{ b.name }}</ion-card-subtitle>
+              <ion-card-subtitle> Author: {{ b.author  }}</ion-card-subtitle>
+              <ion-card-subtitle> Genre: {{ b.genre }}</ion-card-subtitle>
+              <ion-card-subtitle>Price:RM {{ b.price }}</ion-card-subtitle>
+        </ion-card-content>
+          </ion-card>
+  
+        </div>
+      </div>
+      
+      
+      <div class="slide"></div>
+    
+  </div>
+  <br>
+    
+  </ion-content>

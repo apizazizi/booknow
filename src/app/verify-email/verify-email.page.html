@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> Thank You for Registering</ion-card-title>
+      </ion-card-header>
+        <ion-card-content *ngIf="authService.userData as user">
+          <img src ="assets/verified.jpg"/>
+          <p class="text-center">
+            We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+            <p class="text-center">
+              Please check your email and click on the link to verfiy your email address.</p> 
+        </ion-card-content>
+  
+        <ion-button expand="block" class="main-button" (click)="authService.SendVerificationMail()">Resend Verification Email</ion-button>
+        <p class="text-center"> OR </p>
+        <ion-button expand="block" class="main-button" [routerLink]="['/register']" routerLinkActive="router-link-active" >Go back to Sign up</ion-button>
+  
+  
+      </ion-card>
+    </div>
+</ion-content>
+
+
+  

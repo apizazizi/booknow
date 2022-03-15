@@ -1,0 +1,57 @@
+<script type="module">
+  import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.menuController = menuController;
+</script>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar >
+      <ion-buttons slot="start">
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+ 
+
+  <ion-content>
+    <div class="tab-wrap">
+
+            
+  
+          <ion-card *ngFor="let item of orders | async; let num = index;">
+            <ion-item >
+              <ion-button fill="outline" slot="end" [routerLink]="['/order-details', item.order_id]">View</ion-button>
+            </ion-item> 
+            <ion-card-content >
+                  <ion-card-subtitle>Order id: {{ item.order_id }}</ion-card-subtitle>
+                  <ion-card-subtitle> Address: {{ item.delivery_address }}</ion-card-subtitle>
+                  <ion-card-subtitle>RM {{ item.total }}</ion-card-subtitle>
+                  <ion-card-subtitle>Status: {{ item.order_status }}</ion-card-subtitle>
+                  <tr class="heading">
+                    <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                      Item
+                    </td>
+              
+                    <td style="padding: 15px;vertical-align: middle;background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;">
+                      Qty
+                    </td>
+                  </tr>
+              
+                  <tr class="item">
+                    <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+              
+                      <!-- ensures only 1 name in each row -->
+                      {{ item.item[num].name }}
+                    </td>
+              
+                    <td style="padding: 15px;vertical-align: middle;border-bottom: 1px solid #eee;">
+                      {{ item.item_qty[num].qty }}
+                    </td>
+                  </tr>
+            </ion-card-content>
+          </ion-card>
+    
+       
+  </div>
+  <br>
+    
+  </ion-content>

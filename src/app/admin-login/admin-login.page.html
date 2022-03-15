@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+    <h1 color="#fff" >Admin Login</h1>
+
+    <div class="form-container">
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email"  placeholder="email" #adminEmail required></ion-input >
+        </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password"  placeholder="Password" #adminPassword required></ion-input >
+        <ion-icon name="eye" slot="end"></ion-icon>
+      </ion-item>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <ion-button expand="block" class="main-button" (click)="authService.AdminSignIn(adminEmail.value, adminPassword.value)">Log in</ion-button>
+     
+      
+    </div>
+  </div>
+</ion-content>

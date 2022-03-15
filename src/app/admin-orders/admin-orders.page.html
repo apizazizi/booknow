@@ -1,0 +1,68 @@
+<script type="module">
+  import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.menuController = menuController;
+</script>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="admin-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+ 
+
+  <ion-content>
+    <div class="tab-wrap">
+      <input type="radio" name="tabs" id="tab4" checked>
+      <div class="tab-label-content" id="tab4-content">
+        <label class="tab-label" for="tab4">To ship</label>
+        <div class="tab-content">
+
+            
+  
+          <ion-card *ngFor="let item of ToShip | async">
+            <ion-item >
+              <ion-button fill="outline" slot="end" [routerLink]="['/order-details', item.order_id]">View</ion-button>
+            </ion-item> 
+          
+            <ion-card-content >
+                  <ion-card-subtitle>Order id: {{ item.order_id }}</ion-card-subtitle>
+                  <ion-card-subtitle> User email: {{ item.user_email }}</ion-card-subtitle>
+                  <ion-card-subtitle> Address: {{ item.delivery_address }}</ion-card-subtitle>
+                  <ion-card-subtitle>RM {{ item.total }}</ion-card-subtitle>
+                  <ion-button fill="outline" slot="end"  (click)="changeStatus(item.order_id)" color="primary">Change status </ion-button>
+            </ion-card-content>
+          </ion-card>
+      </div>
+      </div>
+       
+      <input type="radio" name="tabs" id="tab5">
+      <div class="tab-label-content" id="tab5-content">
+        <label class="tab-label" for="tab5">To receive</label>
+        <div class="tab-content">
+  
+          <ion-card *ngFor="let item of ToReceive | async">
+            <ion-item >
+              <ion-button fill="outline" slot="end" [routerLink]="['/order-details', item.order_id]">View</ion-button>
+            </ion-item> 
+          
+            <ion-card-content >
+                  <ion-card-subtitle>Order id: {{ item.order_id }}</ion-card-subtitle>
+                  <ion-card-subtitle> Address: {{ item.delivery_adress }}</ion-card-subtitle>
+                  <ion-card-subtitle>RM {{ item.total }}</ion-card-subtitle>
+            </ion-card-content>
+          </ion-card>
+  
+        </div>
+      </div>
+
+
+      
+      <div class="slide"></div>
+    
+  </div>
+  <br>
+    
+  </ion-content>

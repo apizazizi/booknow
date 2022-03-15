@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+      <ion-label class="ion-text-wrap">
+        <img src ="{{ product.image }}"/>
+       NAME: <ion-input type="text"   [(ngModel)]="product.name" required></ion-input >
+         AUTHOR: <ion-input type="text"   [(ngModel)]="product.author" required></ion-input > 
+          GENRE:  <ion-input type="text"   [(ngModel)]="product.genre" required></ion-input >        
+              RM <ion-input type="number"   [(ngModel)]="product.price" required></ion-input >        
+                      
+
+
+      </ion-label>
+      DESCRIPTION:  <ion-input type="text"  [(ngModel)]="product.description" required></ion-input >
+      <ion-button fill="outline" slot="end"  (click)="updateProduct(product)"color="primary">Update</ion-button>
+    
+  </ion-list>
+
+</ion-content>
